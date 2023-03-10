@@ -1,12 +1,12 @@
 /* 导入得意黑字体 */
 @font-face {
   font-family: "smiley-sans";
-  src: url("./assets/fonts/smiley-sans-v1.1.1/SmileySans-Oblique.otf")
+  src: url("assets/fonts/smiley-sans-v1.1.1/SmileySans-Oblique.otf")
       format("otf"),
-    url("./assets/fonts/smiley-sans-v1.1.1/SmileySans-Oblique.ttf") format("ttf");
-  src: url("./assets/fonts/smiley-sans-v1.1.1/SmileySans-Oblique.otf.woff2")
+    url("assets/fonts/smiley-sans-v1.1.1/SmileySans-Oblique.ttf") format("ttf");
+  src: url("assets/fonts/smiley-sans-v1.1.1/SmileySans-Oblique.otf.woff2")
       format("woff2"),
-    url("./assets/fonts/smiley-sans-v1.1.1/SmileySans-Oblique.ttf.woff2")
+    url("assets/fonts/smiley-sans-v1.1.1/SmileySans-Oblique.ttf.woff2")
       format("woff2");
 }
 
