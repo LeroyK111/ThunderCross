@@ -1,6 +1,8 @@
 # ThunderCross
-Use the game developed by vue to practice.
-Now it is worrying about developing assets.
+Use vue3 + Phaser3 for game development.
+It's hard to find game assets. 😥😥😥
 
-Trial Url: 
+There are some bugs, please forgive me
+
+Game Demos: 
 
