@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, defineProps, onBeforeUnmount, reactive, watch  } from 'vue'
+import { ref, onMounted, onBeforeUnmount, reactive, watch  } from 'vue'
 import useStore from "../pinia/useStore"
 import * as Phaser from "phaser"
 // 将各个核心功能以hooks的形式拆解

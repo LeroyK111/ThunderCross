@@ -148,6 +148,7 @@
   },
   "active": "b124552725d61610",
   "lastOpenFiles": [
+    "vite.config.ts.timestamp-1678544221486.mjs",
     "src/hooks/usePreload.ts",
     "src/hooks/useCreate.ts",
     "src/hooks",

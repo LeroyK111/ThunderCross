@@ -16,9 +16,7 @@ export const usePreload = (): obj => {
     this.load.image("sky", bg1_startcg);
     // 加载飞机的精灵图，设置截取片段大小
     this.load.spritesheet("plane", p01_1, { frameWidth: 63.5, frameHeight: 86, startFrame: 0, endFrame: 4, spacing: 0, margin: 0 });
-    // 
-    
-    
+
     // 加载敌机
     // this.load.image("red", "../assets/particles/red.png");
     
