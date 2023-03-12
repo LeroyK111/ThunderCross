@@ -55,6 +55,8 @@ export const useCreate = (): obj => {
     this["bullets"] = bullets;
 
 
+    // boss
+    // this.physics.add.image(0, 0, "boss").setOrigin(0, 0);
 
     // 敌机组
     

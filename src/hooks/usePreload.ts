@@ -3,7 +3,9 @@
 import bg1_startcg from "../assets/imgs/ui/bg1_startcg.jpg"
 import p01_1 from "../assets/imgs/p01-1.png"
 import p_f01 from "../assets/imgs/p-f01.png"
-
+import a11bai from "../assets/imgs/enemy/a1-1-bai.png"
+import wb01 from "../assets/imgs/bullet/wb-01.png"
+import boss6 from "../assets/imgs/boss/img_plane_boss6_副本.png"
 
 type obj = { preload: () => void };
 
@@ -19,16 +21,15 @@ export const usePreload = (): obj => {
     // 加载飞机子弹
     this.load.image("planeBullet", p_f01)
     // 加载敌机
-    // this.load.image("red", "../assets/particles/red.png");
-    
+    this.load.spritesheet("enemyPlane", a11bai, { frameWidth: 63.5, frameHeight: 86, startFrame: 0, endFrame: 3, spacing: 0, margin: 0 });
     // 加载敌机子弹
+    this.load.image("enemyPlaneBullet", wb01)
+    // 加载boss
+    this.load.image("boss", boss6)
     
 
-    // 加载敌机爆炸特效
+    // 加载爆炸特效
 
-    
-
-    // 加载飞机爆炸特效
 
     // 开始游戏
 
@@ -39,13 +40,14 @@ export const usePreload = (): obj => {
     // 击坠数
 
     // 被击毁，结算界面
+
+    // 飞机子弹音效
     
     // 战斗bgm
 
     // 敌机被击毁音效
 
     // 飞机被击毁音效
-    
     
   }
   return { preload };
