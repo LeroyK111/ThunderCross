@@ -1,21 +1,18 @@
 import { ref, reactive } from "vue";
 
-type obj = { create: () => void; update: () => void };
+type obj = { create: () => void };
 
 export const useCreate = (): obj => {
-  // 创建一个响应式对象
-  let player: any;
-
   // 动作创建
   function create(this: any): void {
     // 添加背景, 这里我们设置了x，y坐标
-    this.add.image(0, 0, "sky").setOrigin(0, 0);
+    const bg = this.add.image(0, 0, "sky").setOrigin(0, 0);
 
     // 设置静态物理组，我这里用不到
     // const platforms = this.physics.add.staticGroup();
 
     // 加入玩家
-    player = this.physics.add
+    const player = this.physics.add
       .sprite(220, 600, "plane", 2)
       .setOrigin(0, 0)
       .setScale(0.8);
@@ -26,7 +23,10 @@ export const useCreate = (): obj => {
     player.setCollideWorldBounds(true);
 
     // 设置阻尼
-    player.setDamping(true)
+    player.setDamping(true);
+
+    // 将玩家绑定到this上
+    this["player"] = player;
 
     // 给玩家设置动作
     this.anims.create({
@@ -43,38 +43,35 @@ export const useCreate = (): obj => {
     });
     this.anims.create({
       key: "default",
-      frames: [{key: "plane", frame: 2}],
+      frames: [{ key: "plane", frame: 2 }],
       frameRate: 5,
     });
+
+    // 飞机子弹组
+    const bullets = this.physics.add.group({
+      velocityY: -150,
+    });
+    // 绑定到动作组
+    this["bullets"] = bullets;
+
+
+
+    // 敌机组
     
+    // 敌机子弹
 
-    // 粒子特效
-    // const particles = this.add.particles("plane");
 
-    // 碰撞器，子弹和敌机
-    // this.physics.add.collider(player, platforms);
+
+
+    // 击落敌机，物理碰撞，删除子弹和敌机，展示敌机爆炸动画。积分变动。
+
+
+    // 击落我机，物理碰撞，删除子弹，展示我机爆炸动画，进入结算画面。
+
+
+    // 敌机和我机碰撞，双方爆炸动画。进入结算界面。
+    
   }
 
-  function update(this: any) {
-    // 键盘控制
-    const cursors = this.input.keyboard.createCursorKeys();
-    if (cursors.left.isDown) {
-      player.setVelocityX(-70);
-      player.anims.play("left", true);
-    } else if (cursors.right.isDown) {
-      player.setVelocityX(70);
-      player.anims.play("right", true);
-    } else if (cursors.up.isDown) {
-      player.setVelocityY(-70);
-      player.anims.play("default", true);
-    } else if (cursors.down.isDown) {
-      player.setVelocityY(70);
-      player.anims.play("default", true);
-    } else if (cursors.left.isUp || cursors.right.isUp || cursors.up.isUp || cursors.down.isDown) {
-      player.setVelocity(0, 0)
-      player.anims.play("default", true);
-    }
-  }
-
-  return { create, update };
+  return { create };
 };

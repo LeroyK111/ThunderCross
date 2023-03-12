@@ -2,7 +2,7 @@
 // import * as Phaser from "phaser";
 import bg1_startcg from "../assets/imgs/ui/bg1_startcg.jpg"
 import p01_1 from "../assets/imgs/p01-1.png"
-
+import p_f01 from "../assets/imgs/p-f01.png"
 
 
 type obj = { preload: () => void };
@@ -16,15 +16,17 @@ export const usePreload = (): obj => {
     this.load.image("sky", bg1_startcg);
     // 加载飞机的精灵图，设置截取片段大小
     this.load.spritesheet("plane", p01_1, { frameWidth: 63.5, frameHeight: 86, startFrame: 0, endFrame: 4, spacing: 0, margin: 0 });
-
+    // 加载飞机子弹
+    this.load.image("planeBullet", p_f01)
     // 加载敌机
     // this.load.image("red", "../assets/particles/red.png");
     
     // 加载敌机子弹
+    
 
     // 加载敌机爆炸特效
 
-    // 加载飞机子弹
+    
 
     // 加载飞机爆炸特效
 

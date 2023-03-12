@@ -5,6 +5,8 @@ import * as Phaser from "phaser"
 // 将各个核心功能以hooks的形式拆解
 import {useCreate} from "../hooks/useCreate"
 import {usePreload} from "../hooks/usePreload"
+import { usePlane } from '../hooks/usePlane'
+// import 
 
 
 // 全局状态
@@ -17,6 +19,7 @@ const props = defineProps(["size"])
 // 调用hooks
 const Preload = usePreload()
 const Create = useCreate()
+const Plane = usePlane()
 
 
 // 申明
@@ -51,7 +54,7 @@ onMounted(() => {
               // 游戏对象
               create: Create.create,
               // 数据变化监听器
-              update: Create.update
+              update: Plane.plane,
           }
     };
     // 构造器, 绝对核心
