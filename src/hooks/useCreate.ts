@@ -54,25 +54,25 @@ export const useCreate = (): obj => {
     // 绑定到动作组
     this["bullets"] = bullets;
 
-
-    // boss
-    // this.physics.add.image(0, 0, "boss").setOrigin(0, 0);
-
+    // const enemyPlanes = this.physics.add.sprite(0, 0, "enemyPlane").setOrigin(0, 0)
+        
     // 敌机组
-    
+    // const enemyPlanes = this.physics.add.group({
+    //   key: "enemyPlane",
+    //   repeat: 11,
+    //   setXY: { x: 12, y: 12, step: 10 },
+    // }, {});
+
+    // 敌机子类配置
+    // enemyPlanes.children.iterate(function (child: any) {});
+
     // 敌机子弹
-
-
-
 
     // 击落敌机，物理碰撞，删除子弹和敌机，展示敌机爆炸动画。积分变动。
 
-
     // 击落我机，物理碰撞，删除子弹，展示我机爆炸动画，进入结算画面。
 
-
     // 敌机和我机碰撞，双方爆炸动画。进入结算界面。
-    
   }
 
   return { create };
