@@ -5,7 +5,7 @@ import p01_1 from "../assets/imgs/p01-1.png";
 import p_f01 from "../assets/imgs/p-f01.png";
 import a11bai from "../assets/imgs/enemy/a1-1-bai.png";
 import wb01 from "../assets/imgs/bullet/wb-01.png";
-// import boss6 from "../assets/imgs/boss/img_plane_boss6_副本.png";
+import boom01 from "../assets/imgs/effect/boom01.png";
 
 type obj = { preload: () => void };
 
@@ -13,11 +13,11 @@ export const usePreload = (): obj => {
   // 加载器, new LoaderPlugin(scene) === this 都指向构造函数
   function preload(this: any) {
     // 设置路径
-    // this.load.setBaseURL("..");
+    this.load.setBaseURL("https://github.com/LeroyK111/ThunderCross/");
     // 加载图片
-    this.load.image("sky", bg1_startcg);
+    this.load.image("sky", "assets/imgs/ui/bg1_startcg.jpg");
     // 加载飞机的精灵图，设置截取片段大小
-    this.load.spritesheet("plane", p01_1, {
+    this.load.spritesheet("plane", "assets/imgs/p01-1.png", {
       frameWidth: 63.5,
       frameHeight: 86,
       startFrame: 0,
@@ -26,9 +26,9 @@ export const usePreload = (): obj => {
       margin: 0,
     });
     // 加载飞机子弹
-    this.load.image("planeBullet", p_f01);
+    this.load.image("planeBullet", "assets/imgs/p-f01.pn");
     // 加载敌机
-    this.load.spritesheet("enemyPlane", a11bai, {
+    this.load.spritesheet("enemyPlane", "assets/imgs/enemy/a1-1-bai.png", {
       frameWidth: 47,
       frameHeight: 98,
       startFrame: 0,
@@ -37,28 +37,16 @@ export const usePreload = (): obj => {
       margin: 0,
     });
     // 加载敌机子弹
-    this.load.image("enemyPlaneBullet", wb01);
+    this.load.image("enemyPlaneBullet", "assets/imgs/bullet/wb-01.png");
     // 加载爆炸贴图
-    
-    
-
-    // 开始游戏
-
-    // 暂停游戏
-
-    // 继续游戏
-
-    // 击坠数
-
-    // 被击毁，结算界面
-
-    // 飞机子弹音效
-
-    // 战斗bgm
-
-    // 敌机被击毁音效
-
-    // 飞机被击毁音效
+    this.load.spritesheet("kaboom", "assets/imgs/effect/boom01.png", {
+      frameWidth: 86,
+      frameHeight: 85,
+      startFrame: 0,
+      endFrame: 5,
+      spacing: 0,
+      margin: 0,
+    });
   }
   return { preload };
 };

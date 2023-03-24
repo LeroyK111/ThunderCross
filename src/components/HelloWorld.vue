@@ -20,7 +20,7 @@ const Plane = usePlane()
 
 // 申明
 let config: Phaser.Types.Core.GameConfig;
-let game: Phaser.Game;
+let game: Phaser.Game | any;
 
 
 
@@ -65,11 +65,12 @@ onMounted(() => {
 // 监听变换
 watch(store.size, ()=>{
   game.scale.resize(store.size.width, store.size.height)
-
   game.scene.scenes[0].bg.setScale(store.size.height/ store.defaultSize.height);
   
-
-  // game
+  game.scene.scenes[0].player.setCollideWorldBounds(false)
+  game.scene.scenes[0].enemyPlanes.children.iterate((children:any)=>{
+    children.setCollideWorldBounds(false)
+  })
 })
 
 

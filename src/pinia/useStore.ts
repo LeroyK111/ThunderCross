@@ -8,6 +8,9 @@ const ratio = 480 / 854;
 // 直接组合式写法
 export default defineStore("useStore", () => {
   const size = reactive({ width: 480, height: 854 });
+  const score = ref(0)
+
+
   const changeSize = () => {
     size.height = window.innerHeight;
     size.width = Math.trunc(ratio * size.height);
@@ -16,5 +19,5 @@ export default defineStore("useStore", () => {
     Object.assign(size, defaultSize);
   };
 
-  return { size, changeSize, $reset, defaultSize };
+  return { size, changeSize, $reset, defaultSize, score };
 });
