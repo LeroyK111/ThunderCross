@@ -1,4 +1,5 @@
-import { ref, reactive } from "vue";
+import { ref, reactive, watch } from "vue";
+import useStore from "../pinia/useStore";
 
 type obj = { create: () => void };
 
@@ -8,8 +9,7 @@ export const useCreate = (): obj => {
     // 添加背景, 这里我们设置了x，y坐标
     const bg = this.add.image(0, 0, "sky").setOrigin(0, 0);
 
-    // 设置静态物理组，我这里用不到
-    // const platforms = this.physics.add.staticGroup();
+    this["bg"] = bg;
 
     // 加入玩家
     const player = this.physics.add
@@ -19,9 +19,6 @@ export const useCreate = (): obj => {
 
     // 给玩家设置弹性系数，
     // player.setBounce(0.2);
-    // 圈定玩家边界，不能跑出canvas
-    player.setCollideWorldBounds(true);
-
     // 设置阻尼
     player.setDamping(true);
 
@@ -51,11 +48,14 @@ export const useCreate = (): obj => {
     const bullets = this.physics.add.group({
       velocityY: -150,
     });
+
     // 绑定到动作组
     this["bullets"] = bullets;
 
-    // const enemyPlanes = this.physics.add.sprite(0, 0, "enemyPlane").setOrigin(0, 0)
-        
+    const enemyPlanes = this.physics.add
+      .sprite(0, 0, "enemyPlane")
+      .setOrigin(0, 0);
+    
     // 敌机组
     // const enemyPlanes = this.physics.add.group({
     //   key: "enemyPlane",

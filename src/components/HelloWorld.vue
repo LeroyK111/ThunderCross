@@ -6,34 +6,35 @@ import * as Phaser from "phaser"
 import {useCreate} from "../hooks/useCreate"
 import {usePreload} from "../hooks/usePreload"
 import { usePlane } from '../hooks/usePlane'
-// import 
-
 
 // 全局状态
 const store = useStore()
 
 // 获取dom和传参
 const canvasDom: any = ref(null)
-const props = defineProps(["size"])
 
 // 调用hooks
 const Preload = usePreload()
 const Create = useCreate()
 const Plane = usePlane()
 
-
 // 申明
 let config: Phaser.Types.Core.GameConfig;
 let game: Phaser.Game;
+
+
 
 
 onMounted(() => {
   config = {
           // 选择渲染模式
           type: Phaser.AUTO,
-          // canvas尺寸
-          width: props.size.width,
-          height: props.size.height,
+          // canvas尺寸，动态调整
+          scale: {
+            mode: Phaser.Scale.RESIZE,
+            width: "100%",
+            height: "100%",
+          },
           // 物理配置，碰撞和动作相关
           physics: {
               // 这里选择街机模式
@@ -61,37 +62,30 @@ onMounted(() => {
     game = new Phaser.Game(config);
 })
 
+// 监听变换
+watch(store.size, ()=>{
+  game.scale.resize(store.size.width, store.size.height)
 
+  game.scene.scenes[0].bg.setScale(store.size.height/ store.defaultSize.height);
+  
 
-function closeCanvas() {
-  // 注销canvas
-  game.destroy(true);
-}
-
-
-
-// 监听父组件传参
-watch(()=>props.size, ()=>{
-  closeCanvas()
-  config = {...config, ...props.size}
-  game = new Phaser.Game(config);
-}, {deep: true})
-
+  // game
+})
 
 
 onBeforeUnmount(()=>{
-  closeCanvas()
+  // 注销canvas
+  game.destroy(true);
 })
+
+
+
+
 
 </script>
 
 <template>
-  <div id="cs" class="cs" ref="canvasDom"></div>
+  <div id="cs" :style="{width: store.size.width + 'px', height: store.size.height + 'px' }" ref="canvasDom"></div>
 </template>
 
-<style scoped lang="scss">
-.cs {
-  display: flex;
-  position: relative;
-}
-</style>
+<style scoped lang="scss"></style>

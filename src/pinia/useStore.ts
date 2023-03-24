@@ -1,15 +1,20 @@
 import { defineStore } from "pinia";
-import { ref, reactive, computed } from "vue";
+import { ref, computed, reactive } from "vue";
+
+// 初始值
+const defaultSize = { width: 480, height: 854 };
+const ratio = 480 / 854;
 
 // 直接组合式写法
 export default defineStore("useStore", () => {
-  const count = ref(0);
-
-  const double = computed(() => count.value * 2);
-
-  const add = () => {
-    count.value++;
+  const size = reactive({ width: 480, height: 854 });
+  const changeSize = () => {
+    size.height = window.innerHeight;
+    size.width = Math.trunc(ratio * size.height);
+  };
+  const $reset = () => {
+    Object.assign(size, defaultSize);
   };
 
-  return { count, double, add };
+  return { size, changeSize, $reset, defaultSize };
 });

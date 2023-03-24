@@ -38,7 +38,8 @@ export const usePreload = (): obj => {
     });
     // 加载敌机子弹
     this.load.image("enemyPlaneBullet", wb01);
-    // 加载爆炸特效
+    // 加载爆炸贴图
+    
     
 
     // 开始游戏

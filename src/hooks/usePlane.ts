@@ -19,6 +19,8 @@ export const usePlane = (): rule => {
     if (cursors.left.isDown) {
       this.player.setVelocityX(-70);
       this.player.anims.play("left", true);
+      
+      
     } else if (cursors.right.isDown) {
       this.player.setVelocityX(70);
       this.player.anims.play("right", true);
