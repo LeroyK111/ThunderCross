@@ -13,11 +13,11 @@ export const usePreload = (): obj => {
   // 加载器, new LoaderPlugin(scene) === this 都指向构造函数
   function preload(this: any) {
     // 设置路径，路径真的是一个大问题
-    this.load.setBaseURL("https://github.com/LeroyK111/ThunderCross/");
+    this.load.setBaseURL("https://leroyk111.github.io/ThunderCross/");
     // 加载图片
-    this.load.image("sky", "blob/master/docs/assets/bg1_startcg.jpg");
+    this.load.image("sky", "assets/bg1_startcg.jpg");
     // 加载飞机的精灵图，设置截取片段大小
-    this.load.spritesheet("plane", "blob/master/docs/assets/p01-1.png", {
+    this.load.spritesheet("plane", "assets/p01-1.png", {
       frameWidth: 63.5,
       frameHeight: 86,
       startFrame: 0,
@@ -26,9 +26,9 @@ export const usePreload = (): obj => {
       margin: 0,
     });
     // 加载飞机子弹
-    this.load.image("planeBullet", "blob/master/docs/assets/p-f01.pn");
+    this.load.image("planeBullet", "assets/p-f01.png");
     // 加载敌机
-    this.load.spritesheet("enemyPlane", "blob/master/docs/assets/a1-1-bai.png", {
+    this.load.spritesheet("enemyPlane", "assets/a1-1-bai.png", {
       frameWidth: 47,
       frameHeight: 98,
       startFrame: 0,
@@ -37,9 +37,9 @@ export const usePreload = (): obj => {
       margin: 0,
     });
     // 加载敌机子弹
-    this.load.image("enemyPlaneBullet", "blob/master/docs/assets/wb-01.png");
+    this.load.image("enemyPlaneBullet", "assets/wb-01.png");
     // 加载爆炸贴图
-    this.load.spritesheet("kaboom", "blob/master/docs/assets/boom01.png", {
+    this.load.spritesheet("kaboom", "assets/boom01.png", {
       frameWidth: 86,
       frameHeight: 85,
       startFrame: 0,
