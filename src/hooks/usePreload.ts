@@ -14,6 +14,7 @@ export const usePreload = (): obj => {
   function preload(this: any) {
     // 设置路径，路径真的是一个大问题
     this.load.setBaseURL("https://leroyk111.github.io/ThunderCross/");
+    // Access-Control-Allow-Origin
     // 加载图片
     this.load.image("sky", "assets/bg1_startcg.jpg");
     // 加载飞机的精灵图，设置截取片段大小
